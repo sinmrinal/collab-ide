@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./app.scss";
+import { Content } from "carbon-components-react/lib/components/UIShell";
+import MainHeader from "./components/MainHeader";
+import { Route, Switch } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Editor from "./contents/Editor";
+import About from "./contents/About";
+
+class App extends Component {
+  render() {
+    return (
+      <>
+        <MainHeader />
+        <Content>
+          <Switch>
+            <Route exact path="/" component={Editor} />
+            <Route path="/about" component={About} />
+          </Switch>
+        </Content>
+      </>
+    );
+  }
 }
 
 export default App;
