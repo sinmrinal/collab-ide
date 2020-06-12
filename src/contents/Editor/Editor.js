@@ -68,7 +68,6 @@ function Editor() {
                             label="Select Language"
                             titleText="Select Language"
                             onChange={handleChange}
-
                         />
                     </div>
                     <div className="landing-page__p">

@@ -42,16 +42,6 @@ function CodeEditor(props) {
     });
     themes.forEach(theme => require(`ace-builds/src-noconflict/theme-${theme}`));
 
-
-    // const [code, setCode] = useState([])
-
-    // useEffect(() => {
-    //     const localCode = localStorage.getItem('code');
-    //     if (localCode){
-    //         setCode(JSON.parse(localCode));
-    //     }
-    // }, [])
-
     return (
         <AceEditor
             value={props.code}
