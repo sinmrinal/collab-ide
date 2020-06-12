@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import AceEditor from "react-ace";
 
 // function onChange(props) {
@@ -62,7 +62,7 @@ function CodeEditor(props) {
             name="editor"
             editorProps={{ $blockScrolling: true }}
             fontSize={16}
-            height='100%'
+            height='100vh'
             width="100%"
         />
     )
