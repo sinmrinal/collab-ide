@@ -1,11 +1,8 @@
 import React from "react";
 import AceEditor from "react-ace";
 
-// function onChange(props) {
-//     useEffect()
-// }
 
-function CodeEditor(props) {
+const CodeEditor = props => {
 
     const languages = [
         "c_cpp",
@@ -15,7 +12,6 @@ function CodeEditor(props) {
         "rust",
         "javascript",
         "java",
-        "ruby",
         "typescript"
     ];
 
@@ -52,11 +48,11 @@ function CodeEditor(props) {
             name="editor"
             editorProps={{ $blockScrolling: true }}
             fontSize={16}
-            height='100vh'
+            height='100%'
             width="100%"
         />
     )
-}
+};
 
 
 export default CodeEditor;
