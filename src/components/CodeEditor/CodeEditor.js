@@ -1,57 +1,92 @@
-import React from "react";
-import AceEditor from "react-ace";
+import React, { Component } from "react";
+import { render } from "react-dom";
+/*eslint-disable no-alert, no-console */
 
+const defaultValue = `function onLoad(editor) {
+  console.log("i've loaded");
+}`;
 
-const CodeEditor = props => {
+class CodeEditor extends Component {
+    onLoad() {
+        console.log("i've loaded");
+    }
+    onChange(newValue) {
+        console.log("change", newValue);
+        this.setState({
+            value: newValue
+        });
+    }
 
-    const languages = [
-        "c_cpp",
-        "dart",
-        "golang",
-        "python",
-        "rust",
-        "javascript",
-        "java",
-        "typescript"
-    ];
+    onSelectionChange(newValue, event) {
+        console.log("select-change", newValue);
+        console.log("select-change-event", event);
+    }
 
-    const themes = [
-        "ambiance",
-        "clouds",
-        "clouds_midnight",
-        "dracula",
-        "github",
-        "monokai",
-        "nord_dark",
-        "solarized_dark",
-        "solarized_light",
-        "terminal",
-        "tomorrow",
-        "tomorrow_night_blue",
-        "twilight",
-        "vibrant_ink"
-    ];
+    onCursorChange(newValue, event) {
+        console.log("cursor-change", newValue);
+        console.log("cursor-change-event", event);
+    }
 
-    languages.forEach(lang => {
-        require(`ace-builds/src-noconflict/mode-${lang}`);
-        require(`ace-builds/src-noconflict/snippets/${lang}`);
-    });
-    themes.forEach(theme => require(`ace-builds/src-noconflict/theme-${theme}`));
+    onValidate(annotations) {
+        console.log("onValidate", annotations);
+    }
 
-    return (
-        <AceEditor
-            value={props.code}
-            defaultValue="//type your here"
-            mode={props.language}
-            theme={props.theme}
-            onChange={props.onChange}
-            name="editor"
-            editorProps={{ $blockScrolling: true }}
-            fontSize={16}
-            height='100%'
-            width="100%"
-        />
-    )
+    setPlaceholder(e) {
+        this.setState({
+            placeholder: e.target.value
+        });
+    }
+    setTheme(e) {
+        this.setState({
+            theme: e.target.value
+        });
+    }
+    setMode(e) {
+        this.setState({
+            mode: e.target.value
+        });
+    }
+    setBoolean(name, value) {
+        this.setState({
+            [name]: value
+        });
+    }
+    setFontSize(e) {
+        this.setState({
+            fontSize: parseInt(e.target.value, 10)
+        });
+    }
+    
+    render() {
+        return (
+            <AceEditor
+                placeholder={this.state.placeholder}
+                mode={this.state.mode}
+                theme={this.state.theme}
+                name="blah2"
+                onLoad={this.onLoad}
+                onChange={this.onChange}
+                onSelectionChange={this.onSelectionChange}
+                onCursorChange={this.onCursorChange}
+                onValidate={this.onValidate}
+                value={this.state.value}
+                fontSize={this.state.fontSize}
+                showPrintMargin={this.state.showPrintMargin}
+                showGutter={this.state.showGutter}
+                highlightActiveLine={this.state.highlightActiveLine}
+                height='100%'
+                width="100%"
+                setOptions={{
+                    useWorker: false,
+                    enableBasicAutocompletion: this.state.enableBasicAutocompletion,
+                    enableLiveAutocompletion: this.state.enableLiveAutocompletion,
+                    enableSnippets: this.state.enableSnippets,
+                    showLineNumbers: this.state.showLineNumbers,
+                    tabSize: 2
+                }}
+            />
+        )
+    };
 };
 
 
