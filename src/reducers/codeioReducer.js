@@ -5,9 +5,9 @@ const initialState = {
 
 const codeioReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'input':
+    case 'INPUT':
       return action.payload;
-    case 'output':
+    case 'OUTPUT':
       return action.payload;
     default:
       return state;

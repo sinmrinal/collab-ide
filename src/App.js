@@ -7,7 +7,7 @@ import { Provider } from "react-redux";
 
 import Editor from "./contents/Editor";
 import About from "./contents/About";
-import store from "./store"
+import store from "./store";
 
 class App extends Component {
   render() {

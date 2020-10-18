@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 
-import codeioReducer from "./codeio";
-import editorReducer from "./editor";
+import codeioReducer from "./codeioReducer";
+import editorReducer from "./editorReducer";
 
 const reducers = combineReducers({
     codeio: codeioReducer,
