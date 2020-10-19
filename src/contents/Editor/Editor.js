@@ -16,16 +16,13 @@ import {
 
 const Editor = () => {
     const dispatch = useDispatch();
-    const onDropdownChange = e => {
-        const language = e.selectedItem.lable
+    const onDropdownChange = async (e) => {
+        const language = e.selectedItem.label
         dispatch(editorLanguage(language))
-        // console.log(language)
-        const respsonse = Axios.post("127.0.0.1:8000/api/boilerPlate", { "language": language });
-        // dispatch(editorValue(respsonse.data.boilerPlate))
-        console.log(respsonse)
-    }
+        const respsonse = await Axios.post("http://127.0.0.1:8000/api/boilerPlate/", { "language": language });
+        dispatch(editorValue(respsonse.data.boilerPlate))
+        }
     const onRun = () => {
-        
     }
     return (
         <div className="bx--grid bx--grid--condensed landing-page" >
