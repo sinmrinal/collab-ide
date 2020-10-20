@@ -1,6 +1,6 @@
 const initialState = {
   value: "// select language and type your code here",
-  theme: "monokai",
+  theme: "merbivore",
   mode: "",
   enableBasicAutocompletion: true,
   enableLiveAutocompletion: true,
@@ -8,7 +8,7 @@ const initialState = {
   showGutter: true,
   showPrintMargin: true,
   highlightActiveLine: true,
-  enableSnippets: false,
+  enableSnippets: true,
   showLineNumbers: true
 };
 

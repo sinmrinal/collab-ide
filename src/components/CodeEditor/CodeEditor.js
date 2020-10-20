@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import AceEditor from "react-ace";
-import "ace-builds/src-noconflict/mode-jsx";
+
+import 'ace-builds/webpack-resolver';
+import "ace-builds/src-noconflict/ext-language_tools"
+
 
 const languages = [
     "java",
@@ -12,16 +15,43 @@ const languages = [
 
 
 const themes = [
-    "monokai",
+    "ambiance",
+    "chaos",
+    "chrome",
+    "clouds",
+    "clouds_midnight",
+    "cobalt",
+    "crimson_editor",
+    "dawn",
+    "dracula",
+    "dreamweaver",
+    "eclipse",
     "github",
-    "tomorrow",
+    "gob",
+    "gruvbox",
+    "idle_fingers",
+    "iplastic",
+    "katzenmilch",
+    "kr_theme",
     "kuroir",
-    "twilight",
-    "xcode",
-    "textmate",
+    "merbivore",
+    "mono_industrial",
+    "monokai",
+    "nord_dark",
+    "pastel_on_dark",
     "solarized_dark",
     "solarized_light",
-    "terminal"
+    "sqlserver",
+    "terminal",
+    "textmate",
+    "tomorrow",
+    "tomorrow_night",
+    "tomorrow_night_blue",
+    "tomorrow_night_bright",
+    "tomorrow_night_eighties",
+    "twilight",
+    "vibrant_ink",
+    "xcode"
 ];
 
 languages.forEach(lang => {
@@ -32,38 +62,10 @@ languages.forEach(lang => {
 themes.forEach(theme => require(`ace-builds/src-noconflict/theme-${theme}`));
 
 class CodeEditor extends Component {
-    onChange(newValue) {
-        this.setState({
-            value: newValue
-        });
-    }
-    setTheme(e) {
-        this.setState({
-            theme: e.target.value
-        });
-    }
-    setMode(e) {
-        this.setState({
-            mode: e.target.value
-        });
-    }
-    setBoolean(name, value) {
-        this.setState({
-            [name]: value
-        });
-    }
-    setFontSize(e) {
-        this.setState({
-            fontSize: parseInt(e.target.value, 10)
-        });
-    }
+    
     constructor(props) {
         super(props);
-        this.setTheme = this.setTheme.bind(this);
-        this.setMode = this.setMode.bind(this);
-        this.onChange = this.onChange.bind(this);
-        this.setFontSize = this.setFontSize.bind(this);
-        this.setBoolean = this.setBoolean.bind(this);
+        
     }
     render() {
         return (

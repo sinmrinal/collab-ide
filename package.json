@@ -12,6 +12,7 @@
     "carbon-components-react": "^7.22.0",
     "carbon-icons": "^7.0.7",
     "core-js": "^3.6.5",
+    "file-loader": "^6.1.1",
     "node-sass": "^4.14.1",
     "react": "^16.14.0",
     "react-ace": "^9.1.4",

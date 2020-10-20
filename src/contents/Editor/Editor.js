@@ -6,9 +6,7 @@ import RunIO from "../../components/RunIO";
 import {
     codeInput,
     codeOutput,
-    // editorFontSize,
     editorLanguage,
-    // editorTheme,
     editorValue
 } from "../../actions/action.types";
 
@@ -17,9 +15,10 @@ import {
 const Editor = () => {
     const dispatch = useDispatch();
     const onDropdownChange = async (e) => {
-        const language = e.selectedItem.label
-        dispatch(editorLanguage(language))
-        const respsonse = await Axios.post("http://127.0.0.1:8000/api/boilerPlate/", { "language": language });
+        const languageID = e.selectedItem.id
+        const languageLabel = e.selectedItem.label
+        dispatch(editorLanguage(languageID))
+        const respsonse = await Axios.post("http://127.0.0.1:8000/api/boilerPlate/", { "language": languageLabel });
         dispatch(editorValue(respsonse.data.boilerPlate))
         }
     const onRun = () => {
