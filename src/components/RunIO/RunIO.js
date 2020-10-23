@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Dropdown, TextArea } from "carbon-components-react";
+import { Button, Dropdown, TextArea, InlineLoading } from "carbon-components-react";
 import Renew32 from "@carbon/icons-react/lib/renew/32";
 
 
@@ -50,16 +50,25 @@ const RunIO = (props) => {
                     labelText="Input"
                     rows={7}
                     maxLength={7}
-                value={props.inputValue}
-                onChange={props.onInputChange}
+                    value={props.inputValue}
+                    onChange={props.onInputChange}
                 />
             </div>
-            <div className="landing-page__p">
-                <Button 
-                    renderIcon={Renew32} 
-                    style={{ width: '100%' }}
-                    onClick={props.onRun}
-                    >Run</Button>
+            <div className="landing-page__p" id='executer'>
+                {props.processExecuting ? (
+                    <InlineLoading
+                        style={{ marginLeft: '1rem', width: '100%' }}
+                        description='Executing...'
+                        status='active'
+                        aria-live='off'
+                    />
+                ) : (
+                        <Button
+                            renderIcon={Renew32}
+                            style={{ width: '100%' }}
+                            onClick={props.onRun}
+                        >Run</Button>
+                    )}
             </div>
             <div className="landing-page__p">
                 <TextArea
@@ -68,8 +77,8 @@ const RunIO = (props) => {
                     labelText="Output"
                     rows={7}
                     maxLength={7}
-                value={props.outputValue}
-                onChange={props.onOutputChange}
+                    value={props.outputValue}
+                    onChange={props.onOutputChange}
                 />
             </div>
         </div>

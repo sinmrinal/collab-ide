@@ -6,8 +6,12 @@ export const codeOutput = value => ({
   type: "OUTPUT",
   payload: value,
 });
-export const editorLanguage = value => ({
+export const codeLanguage = value => ({
   type: "LANGUAGE",
+  payload: value,
+})
+export const editorMode = value => ({
+  type: "MODE",
   payload: value,
 });
 export const editorTheme = value => ({

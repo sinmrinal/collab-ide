@@ -1,14 +1,17 @@
 const initialState = {
   input: "",
-  output: ""
+  output: "",
+  language: "",
 };
 
 const codeioReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'INPUT':
-      return action.payload;
+      return { ...state, input: action.payload };
     case 'OUTPUT':
-      return action.payload;
+      return { ...state, output: action.payload };
+    case 'LANGUAGE':
+      return { ...state, language: action.payload };
     default:
       return state;
   }

@@ -14,7 +14,7 @@ const initialState = {
 
 const editorReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'LANGUAGE':
+    case 'MODE':
       return { ...state, mode: action.payload };
     case 'THEME':
       return { ...state, theme: action.payload };
