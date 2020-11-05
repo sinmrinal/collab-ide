@@ -1,0 +1,93 @@
+
+@import '~codemirror/lib/codemirror.css';
+
+/* Themes */
+@import '~codemirror/theme/3024-day.css';
+@import '~codemirror/theme/3024-night.css';
+@import '~codemirror/theme/abcdef.css';
+@import '~codemirror/theme/ambiance-mobile.css';
+@import '~codemirror/theme/ambiance.css';
+@import '~codemirror/theme/base16-dark.css';
+@import '~codemirror/theme/base16-light.css';
+@import '~codemirror/theme/bespin.css';
+@import '~codemirror/theme/blackboard.css';
+@import '~codemirror/theme/cobalt.css';
+@import '~codemirror/theme/colorforth.css';
+@import '~codemirror/theme/darcula.css';
+@import '~codemirror/theme/dracula.css';
+@import '~codemirror/theme/duotone-dark.css';
+@import '~codemirror/theme/duotone-light.css';
+@import '~codemirror/theme/eclipse.css';
+@import '~codemirror/theme/elegant.css';
+@import '~codemirror/theme/erlang-dark.css';
+@import '~codemirror/theme/gruvbox-dark.css';
+@import '~codemirror/theme/hopscotch.css';
+@import '~codemirror/theme/icecoder.css';
+@import '~codemirror/theme/idea.css';
+@import '~codemirror/theme/isotope.css';
+@import '~codemirror/theme/lesser-dark.css';
+@import '~codemirror/theme/liquibyte.css';
+@import '~codemirror/theme/lucario.css';
+@import '~codemirror/theme/material.css';
+@import '~codemirror/theme/mbo.css';
+@import '~codemirror/theme/mdn-like.css';
+@import '~codemirror/theme/midnight.css';
+@import '~codemirror/theme/monokai.css';
+@import '~codemirror/theme/neat.css';
+@import '~codemirror/theme/neo.css';
+@import '~codemirror/theme/night.css';
+@import '~codemirror/theme/oceanic-next.css';
+@import '~codemirror/theme/panda-syntax.css';
+@import '~codemirror/theme/paraiso-dark.css';
+@import '~codemirror/theme/paraiso-light.css';
+@import '~codemirror/theme/pastel-on-dark.css';
+@import '~codemirror/theme/railscasts.css';
+@import '~codemirror/theme/rubyblue.css';
+@import '~codemirror/theme/seti.css';
+@import '~codemirror/theme/shadowfox.css';
+@import '~codemirror/theme/solarized.css';
+@import '~codemirror/theme/ssms.css';
+@import '~codemirror/theme/the-matrix.css';
+@import '~codemirror/theme/tomorrow-night-bright.css';
+@import '~codemirror/theme/tomorrow-night-eighties.css';
+@import '~codemirror/theme/ttcn.css';
+@import '~codemirror/theme/twilight.css';
+@import '~codemirror/theme/vibrant-ink.css';
+@import '~codemirror/theme/xq-dark.css';
+@import '~codemirror/theme/xq-light.css';
+@import '~codemirror/theme/yeti.css';
+@import '~codemirror/theme/zenburn.css';
+
+.remote-caret {
+    position: relative;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    margin-left: -1px;
+    margin-right: -1px;
+    box-sizing: border-box;
+  }
+  .remote-caret > div {
+    position: absolute;
+    top: -1.05em;
+    left: -1px;
+    font-size: .6em;
+    background-color: rgb(250, 129, 0);
+    font-family: serif;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    user-select: none;
+    color: white;
+    padding-left: 2px;
+    padding-right: 2px;
+    z-index: 3;
+    transition: opacity .3s ease-in-out;
+  }
+  .remote-caret.hide-name > div {
+    transition-delay: .7s;
+    opacity: 0;
+  }
+  .remote-caret:hover > div {
+    opacity: 1;
+    transition-delay: 0s;
+  }
