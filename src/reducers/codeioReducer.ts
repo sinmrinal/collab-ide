@@ -4,7 +4,7 @@ const initialState = {
   language: "",
 };
 
-const codeioReducer = (state = initialState, action) => {
+const codeioReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case 'INPUT':
       return { ...state, input: action.payload };

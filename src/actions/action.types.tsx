@@ -1,56 +1,44 @@
-export const codeInput = value => ({
+export const codeInput = (value: string) => ({
   type: "INPUT",
   payload: value,
 });
-export const codeOutput = value => ({
+export const codeOutput = (value: string) => ({
   type: "OUTPUT",
   payload: value,
 });
-export const codeLanguage = value => ({
+export const codeLanguage = (value: string) => ({
   type: "LANGUAGE",
   payload: value,
 })
-export const editorMode = value => ({
+export const editorMode = (value: string) => ({
   type: "MODE",
   payload: value,
 });
-export const editorTheme = value => ({
+export const editorTheme = (value: string) => ({
   type: "THEME",
   payload: value,
 });
-export const editorValue = value => ({
+export const editorValue = (value: string) => ({
   type: "VALUE",
   payload: value,
 });
-export const editorBasicAutocomplete = value => ({
-  type: "ENABLE_BASIC_AUTOCOMPLETION",
-  payload: value,
-});
-export const editorLiveAutocompletion = value => ({
-  type: "ENABLE_LIVE_AUTOCOMPLETION",
-  payload: value,
-});
-export const editorFontSize = value => ({
+export const editorFontSize = (value: number) => ({
   type: "FONT_SIZE",
   payload: value,
 });
-export const editorShowGutter = value => ({
-  type: "SHOW_GUTTER",
+export const roomID = (value: string) => ({
+  type: "ID",
   payload: value,
 });
-export const editorPrintMargin = value => ({
-  type: "SHOW_PRINT_MARGIN",
+export const roomName = (value: string) => ({
+  type: "NAME",
   payload: value,
 });
-export const editorHighlightActiveLine = value => ({
-  type: "HIGHLIGHT_ACTIVE_LINE",
+export const roomUser = (value: string) => ({
+  type: "USERNAME",
   payload: value,
 });
-export const editorEnableSnippets = value => ({
-  type: "ENABLE_SNIPPETS",
-  payload: value,
-});
-export const editorShowLineNumbers = value => ({
-  type: "SHOW_LINE_NUMBERS",
+export const roomAdmin = (value: string) => ({
+  type: "CREATED_BY",
   payload: value,
 });

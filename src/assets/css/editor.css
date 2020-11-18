@@ -1,5 +1,6 @@
 
 @import '~codemirror/lib/codemirror.css';
+@import '~codemirror/addon/scroll/simplescrollbars.css';
 
 /* Themes */
 @import '~codemirror/theme/3024-day.css';
@@ -90,4 +91,9 @@
   .remote-caret:hover > div {
     opacity: 1;
     transition-delay: 0s;
+  }
+
+  .CodeMirror {
+    height: 100%;
+    width: 100%;
   }

@@ -1,67 +1,50 @@
-// import React from 'react';
-import { RootStateOrAny, useSelector, useDispatch } from 'react-redux';
-// import CodeMirror from "@uiw/react-codemirror";
-// import 'codemirror/addon/display/autorefresh';
-// import 'codemirror/addon/comment/comment';
-// import 'codemirror/addon/edit/matchbrackets';
-// import 'codemirror/addon/hint/show-hint';
-
-import 'assets/css/editor.css';
-
-// import { editorValue } from "actions";
-
-// const CodeEditor: React.FC = () => {
-
-
-//     const onChange = (e: any) => {
-//         console.log(e);
-//         dispatch(editorValue(e.target.value))
-//     }
-
-//     return (
-//         <div>
-//             <CodeMirror
-//                 value={useSelector((state: RootStateOrAny) => state.editor.value)}
-//                 onChange={onChange}
-//                 options={{
-//                     theme: useSelector((state: RootStateOrAny) => state.editor.theme),
-//                     mode: useSelector((state: RootStateOrAny) => state.editor.mode),
-//                     lineNumbers: true,
-//                     matchBrackets: true,
-//                     showHint: true
-//                 }}
-//             />
-//         </div>
-//     );
-// };
-
-// export default CodeEditor;
-
-
-
 import * as Y from "yjs";
 import CodeMirror from "codemirror";
 import { WebsocketProvider } from "y-websocket";
 import { CodemirrorBinding } from "y-codemirror";
-export default function CodeEditor (props: any) {
+
+import { RootStateOrAny, useSelector } from 'react-redux';
+import { editorValue } from "actions";
+import 'codemirror/addon/comment/comment';
+import 'codemirror/addon/edit/matchbrackets';
+import 'codemirror/addon/hint/show-hint';
+import 'codemirror/addon/scroll/simplescrollbars';
+import 'codemirror/keymap/sublime';
+
+import 'assets/css/editor.css';
+import store from "../../store";
+
+import "codemirror/mode/clike/clike";
+import "codemirror/mode/dart/dart";
+import "codemirror/mode/go/go";
+import "codemirror/mode/python/python";
+import "codemirror/mode/r/r";
+import "codemirror/mode/rust/rust";
+
+function CodeEditor(wss: string, room_id: string, username: string, color: string, dispatch: any, theme: string, mode: string) {
+    // const state = store.getState()
     const ydoc = new Y.Doc();
     const provider = new WebsocketProvider(
-        props.wss,
-        props.room_id,
+        wss,
+        room_id,
         ydoc
     );
     const yText = ydoc.getText("codemirror");
-
-    const editorContainer = document.createElement("div");
-    editorContainer.setAttribute("id", "editor");
-    document.body.insertBefore(editorContainer, null);
-
-    const editor = CodeMirror(editorContainer, { 
-        theme: useSelector((state: RootStateOrAny) => state.editor.theme),
-        mode: useSelector((state: RootStateOrAny) => state.editor.mode),
+    const editorContainer = document.getElementById("editor") as HTMLElement;
+    const editor = CodeMirror(editorContainer, {
+        theme: theme,
+        mode: mode,
         lineNumbers: true,
+        showHint: true,
+        matchBrackets: true,
+        scrollbarStyle: "overlay",
+        keyMap: "sublime"
     });
     const binding = new CodemirrorBinding(yText, editor, provider.awareness);
-    // @ts-ignore
-    window.example = { provider, ydoc, yText, binding, Y };
+    ydoc.on('update', (update: any) => dispatch(editorValue(ydoc.toJSON().codemirror.replace('↵', '\\n'))));
+    binding.awareness.setLocalStateField('user', { color: color, name: username })
+    provider.connect();
+    return ({ provider, ydoc, yText, binding, Y });
 }
+
+export default CodeEditor;
