@@ -1,14 +1,11 @@
+import { Button, Form, Input } from 'antd';
 import React from 'react';
-import { Button, Input, Form } from "antd";
 
 const JoinRoom = () => {
-    
     const [form] = Form.useForm();
     const onJoinRoom = () => {}
-
     return (
-        <>
-            <Form
+        <Form
                 form={form}
                 layout="vertical"
                 onFinish={onJoinRoom}
@@ -19,7 +16,7 @@ const JoinRoom = () => {
                     label="Enter Room ID"
                     rules={[{ required: true, message: 'Room ID is required!' }]}
                 >
-                    <Input />
+                    <Input size="large"/>
                 </Form.Item>
                 <Form.Item
                     required
@@ -27,13 +24,12 @@ const JoinRoom = () => {
                     label="Enter Your Name"
                     rules={[{ required: true, message: 'Your Name is required!' }]}
                 >
-                    <Input />
+                    <Input size="large"/>
                 </Form.Item>
                 <Form.Item>
                     <Button type="primary" htmlType='submit'>Join Room</Button>
                 </Form.Item>
             </Form>
-        </>
     );
 };
 

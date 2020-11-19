@@ -13,22 +13,22 @@ import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 const CollabEditor: React.FC = () => {
     const dispatch = useDispatch();
     const { id } = useParams<{ id: string }>();
-    const username = useSelector((state: RootStateOrAny) => state.room.username)
+    // const username = useSelector((state: RootStateOrAny) => state.room.username)
     const theme = useSelector((state: RootStateOrAny) => state.editor.theme)
-    const mode = useSelector((state: RootStateOrAny) => state.editor.mode)
+    // const mode = useSelector((state: RootStateOrAny) => state.editor.mode)
     const loadEditor = () => {
         //@ts-ignore
         document.getElementById('loader-button').parentNode.removeChild(document.getElementById('loader-button'))
         const wss = process.env.WSS ?? "wss://demos.yjs.dev/"
-        CodeEditor(wss, id, "username", "#000", dispatch, theme, mode)
+        CodeEditor(wss, id, "username", "#000", dispatch, theme)
     }
 
-    // if (!useSelector((state: RootStateOrAny) => state.room.isvalid)) {
-    //     return (
-    //         <Redirect to="/" />
-    //     )
-    // }
-    // else {
+    if (!useSelector((state: RootStateOrAny) => state.room.isvalid)) {
+        return (
+            <Redirect to="/" />
+        )
+    }
+    else {
         return (
             <div style={{ margin: '16px' }}>
                 <Row>
@@ -50,7 +50,8 @@ const CollabEditor: React.FC = () => {
                 </Row>
             </div>
         );
-        // }
+        }
     };
 
     export default CollabEditor;
+    

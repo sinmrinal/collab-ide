@@ -2,8 +2,6 @@ import * as Y from "yjs";
 import CodeMirror from "codemirror";
 import { WebsocketProvider } from "y-websocket";
 import { CodemirrorBinding } from "y-codemirror";
-
-import { RootStateOrAny, useSelector } from 'react-redux';
 import { editorValue } from "actions";
 import 'codemirror/addon/comment/comment';
 import 'codemirror/addon/edit/matchbrackets';
@@ -11,8 +9,7 @@ import 'codemirror/addon/hint/show-hint';
 import 'codemirror/addon/scroll/simplescrollbars';
 import 'codemirror/keymap/sublime';
 
-import 'assets/css/editor.css';
-import store from "../../store";
+import './editor.css';
 
 import "codemirror/mode/clike/clike";
 import "codemirror/mode/dart/dart";
@@ -21,8 +18,8 @@ import "codemirror/mode/python/python";
 import "codemirror/mode/r/r";
 import "codemirror/mode/rust/rust";
 
-function CodeEditor(wss: string, room_id: string, username: string, color: string, dispatch: any, theme: string, mode: string) {
-    // const state = store.getState()
+
+function CodeEditor(wss: string, room_id: string, username: string, color: string, dispatch: any, mode: any) {
     const ydoc = new Y.Doc();
     const provider = new WebsocketProvider(
         wss,
@@ -32,8 +29,8 @@ function CodeEditor(wss: string, room_id: string, username: string, color: strin
     const yText = ydoc.getText("codemirror");
     const editorContainer = document.getElementById("editor") as HTMLElement;
     const editor = CodeMirror(editorContainer, {
-        theme: theme,
-        mode: mode,
+        theme: "dracula",
+        mode: "",
         lineNumbers: true,
         showHint: true,
         matchBrackets: true,
