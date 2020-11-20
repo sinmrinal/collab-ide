@@ -42,3 +42,7 @@ export const roomAdmin = (value: string) => ({
   type: "CREATED_BY",
   payload: value,
 });
+export const roomCreated = (value: boolean) => ({
+  type: "IS_CREATED",
+  payload: value,
+});

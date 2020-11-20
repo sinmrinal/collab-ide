@@ -29,7 +29,7 @@ const RoomInfo: React.FC = () => {
 
     const contentList = {
         "0": <Space direction="vertical">
-                <Text>Created by: {useSelector((state: RootStateOrAny) => state.room.admin)}</Text>
+                <Text>Created by: {useSelector((state: RootStateOrAny) => state.room.created_by)}</Text>
                 <Text> Room Key: 
                     <Paragraph copyable>{useSelector((state: RootStateOrAny) => state.room.id)}</Paragraph>
                 </Text>

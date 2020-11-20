@@ -4,6 +4,11 @@ import { codeInput,
     editorMode,
     editorTheme,
     editorValue,
+    roomAdmin,
+    roomID,
+    roomName,
+    roomUser,
+    roomCreated
  } from "./action.types";
 
 export { codeInput,
@@ -12,4 +17,9 @@ export { codeInput,
     editorMode,
     editorTheme,
     editorValue,
+    roomAdmin,
+    roomID,
+    roomName,
+    roomUser,
+    roomCreated
  };

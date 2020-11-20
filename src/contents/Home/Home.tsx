@@ -4,7 +4,7 @@ import CreateRoom from 'components/CreateRoom';
 import JoinRoom from 'components/JoinRoom';
 
 
-const Home: React.FC = () => {
+const Home: React.FC = (props) => {
     const { TabPane } = Tabs;
     return (
             <div className="center">

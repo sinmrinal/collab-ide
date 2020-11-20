@@ -19,7 +19,7 @@ import "codemirror/mode/r/r";
 import "codemirror/mode/rust/rust";
 
 
-function CodeEditor(wss: string, room_id: string, username: string, color: string, dispatch: any, mode: any) {
+function CodeEditor(wss: string, room_id: string, username: string, color: string, dispatch: any, theme: string, mode: string) {
     const ydoc = new Y.Doc();
     const provider = new WebsocketProvider(
         wss,
@@ -29,8 +29,8 @@ function CodeEditor(wss: string, room_id: string, username: string, color: strin
     const yText = ydoc.getText("codemirror");
     const editorContainer = document.getElementById("editor") as HTMLElement;
     const editor = CodeMirror(editorContainer, {
-        theme: "dracula",
-        mode: "",
+        theme: theme,
+        mode: mode,
         lineNumbers: true,
         showHint: true,
         matchBrackets: true,

@@ -41,6 +41,7 @@ html, body{
     font-family: NGNormal;
     background: black;
     width: 500px;
+    border: none;
 }
 
 h1{
