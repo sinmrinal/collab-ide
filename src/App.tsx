@@ -11,7 +11,7 @@ interface Props extends RouteProps {
   component: any;
 }
 const RoomLoaderRoute: React.FC<Props> = (props) => {
-  const roomCreated = useSelector((state: RootStateOrAny) => state.room.isCreated);
+  const roomCreated: boolean = useSelector((state: RootStateOrAny) => state.room.isCreated);
   const { component: Component, ...rest } = props;
 
   return (
@@ -30,7 +30,7 @@ const RoomLoaderRoute: React.FC<Props> = (props) => {
 
 
 
-const App: React.FC = () => {
+const App: React.FC = (props: any) => {
   return (
     <Provider store={store}>
       <Switch>

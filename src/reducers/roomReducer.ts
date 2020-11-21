@@ -10,7 +10,7 @@ const initialState = {
 const roomReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case 'IS_CREATED':
-      return { ...state, isValid: action.payload };
+      return { ...state, isCreated: action.payload };
     case 'ID':
       return { ...state, id: action.payload };
     case 'NAME':

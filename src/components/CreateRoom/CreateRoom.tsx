@@ -2,14 +2,16 @@ import React, { useState } from 'react';
 import Axios from "axios";
 import { useDispatch } from "react-redux";
 import { roomAdmin, roomID, roomName, roomCreated } from "actions";
+import { useHistory } from "react-router-dom";
 
 import { Button, Input, Form } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
 
 const CreateRoom = (props: any) => {
     const [processExecuting, setProcessExecuting] = useState(false);
-    const dispatch = useDispatch();
-    const [form] = Form.useForm();
+    const dispatch = useDispatch()
+    const history = useHistory()
+    const [form] = Form.useForm()
     const onCreateRoom = async (e: any) => {
         setProcessExecuting(true)
         await Axios.post("http://127.0.0.1:8000/api/createRoom/", { roomName: e.room, admin: e.name })
@@ -19,7 +21,7 @@ const CreateRoom = (props: any) => {
                 dispatch(roomAdmin(response.data.created_by))
                 dispatch(roomCreated(true))
                 setProcessExecuting(false)
-                props.history.push(`/room/${response.data.ID}`)
+                history.push(`/room/${response.data.ID}`)
             })
             .catch(function (error) {
                 setProcessExecuting(false)

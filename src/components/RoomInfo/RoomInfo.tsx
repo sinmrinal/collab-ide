@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
-import { useSelector, RootStateOrAny } from "react-redux";
+import { useSelector, RootStateOrAny, useDispatch } from "react-redux";
+import { roomAdmin, roomCreated, roomID, roomName } from "actions";
 import { Button, Card, List, Typography, Space } from "antd";
 import { UserOutlined } from '@ant-design/icons';
+import { useHistory } from "react-router-dom";
 
-const RoomInfo: React.FC = () => {
+const RoomInfo: React.FC = (props) => {
 
     const { Paragraph, Text } = Typography;
+    const dispatch = useDispatch();
+    const history = useHistory()
 
     const [tabState, setTabState] = useState({
         key: '0'
@@ -46,10 +50,16 @@ const RoomInfo: React.FC = () => {
             </Space>,
     };
 
-    const onLeaveRoom = () => {}
+    const onLeaveRoom = (props: any) => {
+        dispatch(roomName(""))
+        dispatch(roomID(""))
+        dispatch(roomAdmin(""))
+        dispatch(roomCreated(false))
+        history.push('/')
+    }
 
     return (
-        <div>
+        <div style={{margin: "8px 12px 8px 8px"}}>
             <Card
                 hoverable
                 style={{ width: '100%' }}

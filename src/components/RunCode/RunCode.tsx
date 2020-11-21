@@ -23,8 +23,9 @@ const RunCode = () => {
     }
 
     return (
-        <div>
+        <div style={{margin: "8px 12px 8px 8px"}}>
             <Button
+            
                 style={{ width: '100%' }}
                 size='large'
                 type='primary'

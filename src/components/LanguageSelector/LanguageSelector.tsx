@@ -14,7 +14,7 @@ const LanguageSelector: React.FC = () => {
         dispatch(codeLanguage(info[0]))
     };
     return (
-        <div>
+        <div style={{margin: "8px 12px 8px 8px"}}>
             <Card
                 hoverable
                 style={{ width: '100%' }}

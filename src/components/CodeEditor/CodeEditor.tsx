@@ -35,7 +35,8 @@ function CodeEditor(wss: string, room_id: string, username: string, color: strin
         showHint: true,
         matchBrackets: true,
         scrollbarStyle: "overlay",
-        keyMap: "sublime"
+        keyMap: "sublime",
+        lineWrapping: true
     });
     const binding = new CodemirrorBinding(yText, editor, provider.awareness);
     ydoc.on('update', (update: any) => dispatch(editorValue(ydoc.toJSON().codemirror.replace('↵', '\\n'))));
