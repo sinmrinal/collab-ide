@@ -15,29 +15,30 @@ const RoomLoaderRoute: React.FC<Props> = (props) => {
   const { component: Component, ...rest } = props;
 
   return (
-    <Route
-      {...rest}
-      render={(props) =>
-        roomCreated ? (
-          <Component {...props} />
-        ) : (
-            <Redirect to={{ pathname: '/', state: { from: props.location } }} />
-          )
-      }
-    />
+      <Route
+          {...rest}
+          render={(props) =>
+              roomCreated ? (
+                  <Component {...props} />
+              ) : (
+                  <Redirect to={{ pathname: '/', state: { from: props.location } }} />
+              )
+          }
+      />
   );
 };
 
 
 
-const App: React.FC = (props: any) => {
+const App: React.FC = () => {
+
   return (
-    <Provider store={store}>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <RoomLoaderRoute exact path="/room/:id" component={CollabEditor} />
-      </Switch>
-    </Provider>
+      <Provider store={store}>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <RoomLoaderRoute exact path="/room/:id" component={CollabEditor} />
+        </Switch>
+      </Provider>
   );
 }
 

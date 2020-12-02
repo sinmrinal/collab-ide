@@ -26,11 +26,11 @@ export const editorFontSize = (value: number) => ({
   type: "FONT_SIZE",
   payload: value,
 });
-export const roomID = (value: string) => ({
+export const roomID = (value: string | null) => ({
   type: "ID",
   payload: value,
 });
-export const roomName = (value: string) => ({
+export const roomName = (value: string | null) => ({
   type: "NAME",
   payload: value,
 });
@@ -38,7 +38,7 @@ export const roomUser = (value: string) => ({
   type: "USERNAME",
   payload: value,
 });
-export const roomAdmin = (value: string) => ({
+export const roomAdmin = (value: string | null) => ({
   type: "CREATED_BY",
   payload: value,
 });

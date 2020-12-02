@@ -1,8 +1,8 @@
 const initialState = {
-  value: "// select language and type your code here",
+  value: "",
   theme: "dracula",
-  mode: "python",
-  fontSize: 16
+  mode: "",
+  fontSize: 18
 };
 
 const editorReducer = (state = initialState, action: any) => {

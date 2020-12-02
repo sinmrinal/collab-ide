@@ -10,17 +10,17 @@ module.exports = {
       reducers: path.resolve(__dirname, 'src/reducers/'),
     }
   },
-  module: {
-    loaders: [
-        {
-            // test: /\.jsx?$/,
-            exclude: /node_modules/,
-            loaders: ['babel'],
-            //loaders: ["react-hot", 'babel-loader'],
-            //query: {
-            //    presets : ['es2015', 'react']
-            //}
-        }
-    ]
-}
+//   module: {
+//     loaders: [
+//         {
+//             // test: /\.jsx?$/,
+//             exclude: /node_modules/,
+//             loaders: ['babel'],
+//             //loaders: ["react-hot", 'babel-loader'],
+//             //query: {
+//             //    presets : ['es2015', 'react']
+//             //}
+//         }
+//     ]
+// }
 };

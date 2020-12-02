@@ -1,8 +1,8 @@
 import * as Y from "yjs";
 import CodeMirror from "codemirror";
-import { WebsocketProvider } from "y-websocket";
-import { CodemirrorBinding } from "y-codemirror";
-import { editorValue } from "actions";
+import {WebsocketProvider} from "y-websocket";
+import {CodemirrorBinding} from "y-codemirror";
+import {editorValue} from "actions";
 import 'codemirror/addon/comment/comment';
 import 'codemirror/addon/edit/matchbrackets';
 import 'codemirror/addon/hint/show-hint';
@@ -19,11 +19,11 @@ import "codemirror/mode/r/r";
 import "codemirror/mode/rust/rust";
 
 
-function CodeEditor(wss: string, room_id: string, username: string, color: string, dispatch: any, theme: string, mode: string) {
+const CodeEditor = (dispatch: any, id: string, username: string, theme: string, mode: string) => {
     const ydoc = new Y.Doc();
     const provider = new WebsocketProvider(
-        wss,
-        room_id,
+        "ws://127.0.0.1:9000",
+        id,
         ydoc
     );
     const yText = ydoc.getText("codemirror");
@@ -36,13 +36,56 @@ function CodeEditor(wss: string, room_id: string, username: string, color: strin
         matchBrackets: true,
         scrollbarStyle: "overlay",
         keyMap: "sublime",
-        lineWrapping: true
+        lineWrapping: true,
+
     });
     const binding = new CodemirrorBinding(yText, editor, provider.awareness);
     ydoc.on('update', (update: any) => dispatch(editorValue(ydoc.toJSON().codemirror.replace('↵', '\\n'))));
-    binding.awareness.setLocalStateField('user', { color: color, name: username })
-    provider.connect();
-    return ({ provider, ydoc, yText, binding, Y });
+    binding.awareness.setLocalStateField('user', {color: "#000", name: username})
+    // provider.connect();
+    if (id !== null) {
+        provider.connect()
+    } else {
+        provider.disconnect()
+    }
+    return (
+        {provider, ydoc, yText, binding, Y}
+    );
 }
 
 export default CodeEditor;
+
+
+// window.addEventListener('load', () => {
+//     const ydoc = new Y.Doc()
+//     const provider = new WebsocketProvider(
+//       'test.server',
+//      'test.room',
+//       ydoc
+//     )
+//     const yText = ydoc.getText('codemirror')
+//     const editorContainer = document.createElement('div')
+//     editorContainer.setAttribute('id', 'editor')
+//     document.body.insertBefore(editorContainer, null)
+
+//     const editor = CodeMirror(editorContainer, {
+//       mode: 'javascript',
+//       lineNumbers: true
+//     })
+
+//     const binding = new CodemirrorBinding(yText, editor, provider.awareness)
+
+//     const connectBtn = /** @type {HTMLElement} */ (document.getElementById('y-connect-btn')) as HTMLElement
+//     connectBtn.addEventListener('click', () => {
+//       if (provider.shouldConnect) {
+//         provider.disconnect()
+//         connectBtn.textContent = 'Connect'
+//       } else {
+//         provider.connect()
+//         connectBtn.textContent = 'Disconnect'
+//       }
+//     })
+
+//     // @ts-ignore
+//     window.example = { provider, ydoc, yText, binding, Y }
+//   })

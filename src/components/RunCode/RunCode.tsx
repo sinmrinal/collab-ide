@@ -15,10 +15,10 @@ const RunCode = () => {
     const onClick = async () => {
         setProcessExecuting(true);
         const state = store.getState();
-        const url = process.env.COMPILE_URL ?? '';
+        const url = process.env.COMPILE_URL ?? 'http://127.0.0.1:8000/api/compile/';
         const data = { 'language': state.codeio.language, 'code': state.editor.value, 'input': state.codeio.input };
-        const respsonse = await Axios.post(url, data);
-        dispatch(codeOutput(respsonse.data.output))
+        const response = await Axios.post(url, data);
+        dispatch(codeOutput(response.data.output))
         setProcessExecuting(false)
     }
 

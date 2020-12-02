@@ -1,9 +1,9 @@
 const initialState = {
   isCreated: false,
-  id: "",
-  name: "",
-  username: "",
-  created_by: "",
+  id: null,
+  name: null,
+  username: null,
+  created_by: null,
   active_users: [],
 };
 
