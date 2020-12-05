@@ -1,7 +1,7 @@
 import React from 'react';
-import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
-import { Select } from "antd";
-import { editorMode } from "actions";
+import {RootStateOrAny, useDispatch, useSelector} from "react-redux";
+import {Select} from "antd";
+import {editorMode} from "actions";
 
 const ThemeSelector: React.FC = () => {
 
@@ -17,7 +17,7 @@ const ThemeSelector: React.FC = () => {
     return (
         <div>
             <Select defaultValue={useSelector((state: RootStateOrAny) => state.editor.theme)} onChange={onChange}>
-            {themes.map((theme) => (
+                {themes.map((theme) => (
                     <Option value={theme}>
                         {theme}
                     </Option>

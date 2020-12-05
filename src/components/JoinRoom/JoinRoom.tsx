@@ -1,10 +1,10 @@
-import { Button, Form, Input, notification } from 'antd';
-import React, { useState } from 'react';
+import {Button, Form, Input, notification} from 'antd';
+import React, {useState} from 'react';
 import Axios from "axios";
-import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { roomID, roomName, roomAdmin, roomCreated } from 'actions';
-import { LoadingOutlined } from '@ant-design/icons';
+import {useDispatch} from 'react-redux';
+import {useHistory} from 'react-router-dom';
+import {roomAdmin, roomCreated, roomID, roomName} from 'actions';
+import {LoadingOutlined} from '@ant-design/icons';
 
 const JoinRoom = () => {
     const [form] = Form.useForm();
@@ -14,7 +14,7 @@ const JoinRoom = () => {
     const history = useHistory()
     const onJoinRoom = async (e: any) => {
         setProcessExecuting(true)
-        await Axios.post("http://127.0.0.1:8000/api/joinRoom/", { roomID: e.roomid, name: e.name })
+        await Axios.post("http://127.0.0.1:8000/api/joinRoom/", {roomID: e.roomid, name: e.name})
             .then(function (response) {
                 if (response.data.ID) {
                     dispatch(roomID(response.data.ID))
@@ -23,8 +23,7 @@ const JoinRoom = () => {
                     dispatch(roomCreated(true))
                     setProcessExecuting(false)
                     history.push(`/room/${response.data.ID}`)
-                }
-                else {
+                } else {
                     setProcessExecuting(false)
                     notification.error({
                         message: "Incorrect Room ID!",
@@ -48,22 +47,22 @@ const JoinRoom = () => {
                 required
                 name='roomid'
                 label="Enter Room ID"
-                rules={[{ required: true, message: 'Room ID is required!' }]}
+                rules={[{required: true, message: 'Room ID is required!'}]}
             >
-                <Input size="large" />
+                <Input size="large"/>
             </Form.Item>
             <Form.Item
                 required
                 name='name'
                 label="Enter Your Name"
-                rules={[{ required: true, message: 'Your Name is required!' }]}
+                rules={[{required: true, message: 'Your Name is required!'}]}
             >
-                <Input size="large" />
+                <Input size="large"/>
             </Form.Item>
             <Form.Item>
                 {processExecuting
                     ? (
-                        <Button type="primary" disabled ><LoadingOutlined /> Loading...</Button>
+                        <Button type="primary" disabled><LoadingOutlined/> Loading...</Button>
                     ) :
                     (
                         <Button id="join-button" type="primary" htmlType='submit' size="middle">Join Room</Button>

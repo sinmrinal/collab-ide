@@ -7,6 +7,7 @@ import video from 'assets/background.mp4';
 
 
 const Home: React.FC = (props) => {
+
     const {TabPane} = Tabs;
     return (<>
             <video playsInline autoPlay muted loop id="bgvid">

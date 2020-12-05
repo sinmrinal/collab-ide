@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {RootStateOrAny, useDispatch, useSelector} from "react-redux";
-import {roomAdmin, roomCreated, roomID, roomName} from "actions";
+import {resetStore} from "actions";
 import {Button, Card, List, Space, Typography} from "antd";
 import {UserOutlined} from '@ant-design/icons';
 import {useHistory} from "react-router-dom";
@@ -51,10 +51,7 @@ const RoomInfo: React.FC = (props: any) => {
     };
 
     const onLeaveRoom = () => {
-        dispatch(roomName(null))
-        dispatch(roomID(null))
-        dispatch(roomAdmin(null))
-        dispatch(roomCreated(false))
+        dispatch(resetStore())
         history.push('/')
     }
 

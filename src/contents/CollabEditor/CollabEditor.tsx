@@ -63,6 +63,7 @@ const CollabEditor: React.FC = () => {
                     height: '100%',
                     position: 'fixed',
                     left: 0,
+                    backgroundColor: 'black'
                 }}
             >
                 <LanguageSelector/>

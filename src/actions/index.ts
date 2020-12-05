@@ -1,17 +1,20 @@
-import { codeInput,
+import {
+    codeInput,
     codeLanguage,
     codeOutput,
     editorMode,
     editorTheme,
     editorValue,
+    resetStore,
     roomAdmin,
+    roomCreated,
     roomID,
     roomName,
-    roomUser,
-    roomCreated
- } from "./action.types";
+    roomUser
+} from "./action.types";
 
-export { codeInput,
+export {
+    codeInput,
     codeLanguage,
     codeOutput,
     editorMode,
@@ -21,5 +24,6 @@ export { codeInput,
     roomID,
     roomName,
     roomUser,
-    roomCreated
- };
+    roomCreated,
+    resetStore
+};

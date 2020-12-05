@@ -1,6 +1,6 @@
 <h1 align="center">
   <h1 align="center" > COLAB <b>IDE</b> </h1>
-    <h3 align="center">A browser based collaborative code editor.</h3>
+    <h3 align="center">A CRDT based collaborative code editor.</h3>
 </h1>
 
 <p align="center">
@@ -21,8 +21,8 @@
 
 ## About
 
-A browser based collaborative code editor made with [react](reactjs.org).
-Backend is seperate python [project](https://github.com/sinmrinal/collab-ide-backend) made with python.
+A CRDT based collaborative code editor made with [react](reactjs.org).
+Backend is in separate [project](https://github.com/sinmrinal/collab-ide-backend) made with python.
 
 ## Local Development
 
@@ -30,7 +30,7 @@ Backend is seperate python [project](https://github.com/sinmrinal/collab-ide-bac
 ### Step 1: Clone the repo
 
 ```bash
-https://github.com/sinmrinal/collab-ide.git
+git clone https://github.com/sinmrinal/collab-ide.git
 ```
 
 ### Step 3: Install dependencies
@@ -39,13 +39,13 @@ https://github.com/sinmrinal/collab-ide.git
 ```bash
 
 # Install dependencies
-$ npm i
+$ yarn i
 
 ```
 
 ### Step 4: Usage
 
-Run the project by:
+Start the project by:
 
 ```bash
 
@@ -61,10 +61,9 @@ $ npm start
 
 |       Feature              |  Status  |   Stability   |
 | -------------------------- | :------: |   :-------:   |
-| Guest Editor               |   Done   |     Stable    |
-| Editor Themes              |   Done   |     Stable    |
 | Compile Code               |   Done   |     Stable    |
-| Collaboration              |   WIP    |       -       |
+| Collaboration              |   Done   |     Stable    |
+| DS & Algorithm Snippets    |   WIP    |       -       |
 | Chat                       |   TODO   |       -       |
 | CLI                        |   TODO   |       -       |
 | Save Project on Server     |   TODO   |       -       |
@@ -77,12 +76,13 @@ $ npm start
 |     Language      | Support |
 | ----------------- | :-----: |
 | C                 |   ✔️   |
-| C++               |   ❌   |
+| C++               |   ✔️   |
 | Java              |   ✔️   |
 | Python            |   ✔️   |
 | Go                |   ✔️   |
 | Dart              |   ✔️   |
-| Rust              |   ❌   |
+| Rust              |   ✔️   |
+| R                 |   WIP    |
 
 <br>
 <br>

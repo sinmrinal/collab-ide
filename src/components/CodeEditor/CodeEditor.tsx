@@ -22,7 +22,7 @@ import "codemirror/mode/rust/rust";
 const CodeEditor = (dispatch: any, id: string, username: string, theme: string, mode: string) => {
     const ydoc = new Y.Doc();
     const provider = new WebsocketProvider(
-        "ws://127.0.0.1:9000",
+        "wss://demos.yjs.dev",
         id,
         ydoc
     );
@@ -54,38 +54,3 @@ const CodeEditor = (dispatch: any, id: string, username: string, theme: string, 
 }
 
 export default CodeEditor;
-
-
-// window.addEventListener('load', () => {
-//     const ydoc = new Y.Doc()
-//     const provider = new WebsocketProvider(
-//       'test.server',
-//      'test.room',
-//       ydoc
-//     )
-//     const yText = ydoc.getText('codemirror')
-//     const editorContainer = document.createElement('div')
-//     editorContainer.setAttribute('id', 'editor')
-//     document.body.insertBefore(editorContainer, null)
-
-//     const editor = CodeMirror(editorContainer, {
-//       mode: 'javascript',
-//       lineNumbers: true
-//     })
-
-//     const binding = new CodemirrorBinding(yText, editor, provider.awareness)
-
-//     const connectBtn = /** @type {HTMLElement} */ (document.getElementById('y-connect-btn')) as HTMLElement
-//     connectBtn.addEventListener('click', () => {
-//       if (provider.shouldConnect) {
-//         provider.disconnect()
-//         connectBtn.textContent = 'Connect'
-//       } else {
-//         provider.connect()
-//         connectBtn.textContent = 'Disconnect'
-//       }
-//     })
-
-//     // @ts-ignore
-//     window.example = { provider, ydoc, yText, binding, Y }
-//   })
