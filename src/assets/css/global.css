@@ -1,0 +1,71 @@
+@import '~antd/dist/antd.dark.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+@font-face {
+    font-family: 'NGNormal';
+    src: url('../fonts/NGRE.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NGBoldExtended';
+    src: url('../fonts/NGEBE.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    /* margin: 8px; */
+}
+
+.center {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    font-family: NGNormal, serif;
+    background: black;
+    width: 500px;
+    border: none;
+}
+
+h1 {
+    /* font-family: 'Roboto', sans-serif; */
+    font-family: NGBoldExtended, serif;
+    font-size: 6rem;
+    text-align: center;
+    margin: 8px;
+    color: white;
+}
+
+h3 {
+    /* font-family: 'Roboto', sans-serif; */
+    font-family: NGNormal, serif;
+    font-size: 1rem;
+    color: white;
+    text-align: center;
+}
+
+video {
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
