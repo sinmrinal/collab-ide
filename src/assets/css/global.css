@@ -39,9 +39,18 @@ body {
 
 .card {
     font-family: NGNormal, serif;
-    background: black;
+    position: relative;
+    border-radius: 6px;
     width: 500px;
     border: none;
+    z-index: 10;
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+    padding: 25px;
+    
 }
 
 h1 {
@@ -53,10 +62,8 @@ h1 {
     color: white;
 }
 
-h3 {
-    /* font-family: 'Roboto', sans-serif; */
+h2 {
     font-family: NGNormal, serif;
-    font-size: 1rem;
     color: white;
     text-align: center;
 }
@@ -68,4 +75,5 @@ video {
     position: fixed;
     top: 0;
     left: 0;
+    filter: brightness(40%);
 }

@@ -15,12 +15,11 @@ const Home: React.FC = (props) => {
             </video>
             <div className="center">
                 <Col span={12}>
-                    <h1 style={{justifySelf: "center"}}>Collab<b>IDE</b></h1>
-                    <h3>Browser based online collaborative IDE.</h3>
+                    <h1 style={{justifySelf: "center"}}>Collab <b>IDE</b></h1>
+                    <h2>In-Browser collaborative code editor.</h2>
                 </Col>
                 <Col className="center" span={12}>
-                    <Card
-                        hoverable
+                    <div
                         className="card">
                         <Tabs defaultActiveKey='create' size='large'>
                             <TabPane key='create' tab='Create Room'>
@@ -30,7 +29,7 @@ const Home: React.FC = (props) => {
                                 <JoinRoom/>
                             </TabPane>
                         </Tabs>
-                    </Card>
+                    </div>
                 </Col>
             </div>
         </>

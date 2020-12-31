@@ -1,6 +1,6 @@
 const initialState = {
     value: "",
-    theme: "3024-night",
+    theme: "dracula",
     mode: "",
     fontSize: 18
 };
