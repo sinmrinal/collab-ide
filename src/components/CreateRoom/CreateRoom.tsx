@@ -30,7 +30,7 @@ const CreateRoom = () => {
             setProcessExecuting(false)
             notification.error({
                 message: "OOPS! :(",
-                description: "Seems like Servers are not responding currectly at the moment. Try again later.",
+                description: "Seems like Servers are not responding currently at the moment. Try again later.",
                 duration: 5
             })
         } else {

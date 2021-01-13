@@ -12,10 +12,8 @@ import 'codemirror/keymap/sublime';
 import './editor.css';
 
 import "codemirror/mode/clike/clike";
-import "codemirror/mode/dart/dart";
 import "codemirror/mode/go/go";
 import "codemirror/mode/python/python";
-import "codemirror/mode/r/r";
 import "codemirror/mode/rust/rust";
 
 

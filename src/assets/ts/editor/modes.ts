@@ -8,10 +8,6 @@ const languages = [
         mode: "clike"
     },
     {
-        language: "Dart",
-        mode: "dart"
-    },
-    {
         language: "Go",
         mode: "go"
     },

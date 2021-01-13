@@ -28,6 +28,8 @@ const RunCode = () => {
         })
         if (!response.ok) {
             dispatch(codeOutput("Internal Server Error."))
+            const data: Data = await response.json()
+            console.log(data)
             setProcessExecuting(false)
         } else {
             const data: Data = await response.json()
