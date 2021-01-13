@@ -1,6 +1,6 @@
 @import '~codemirror/lib/codemirror.css';
 @import '~codemirror/addon/scroll/simplescrollbars.css';
-@import '~codemirror/theme/3024-night.css';
+@import '~codemirror/theme/dracula.css';
 
 .remote-caret {
     position: relative;
