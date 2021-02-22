@@ -34,6 +34,7 @@ const JoinRoom = () => {
                 duration: 3
             })
         } else {
+            console.log(response)
             const data: Data = await response.json()
             dispatch(roomID(data.ID))
             dispatch(roomName(data.name))

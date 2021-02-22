@@ -42,8 +42,6 @@
 .CodeMirror {
     height: 100%;
     width: 100%;
-    /* margin: 16px 16px 16px 16px; */
-    overflow-x: hidden;
     position: absolute;
     font-size: 1rem;
 }

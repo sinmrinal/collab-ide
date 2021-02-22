@@ -8,7 +8,7 @@ import video from 'assets/background.mp4';
 
 const Home: React.FC = (props) => {
 
-    fetch(process.env.REACT_APP_SERVER_CHECK!,
+    fetch(process.env.REACT_APP_SERVER_CHECK || 'localhost:8000/api/check',
         ).catch(function () {
             notification.error({
                 message: "OOPS! :(",

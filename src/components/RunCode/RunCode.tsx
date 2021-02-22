@@ -33,6 +33,7 @@ const RunCode = () => {
             setProcessExecuting(false)
         } else {
             const data: Data = await response.json()
+            console.log(data)
             dispatch(codeOutput(data.output))
             setProcessExecuting(false)
         }

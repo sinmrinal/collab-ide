@@ -1,18 +1,18 @@
-import React, {useEffect} from 'react';
-import Scrollbar from 'smooth-scrollbar';
+import React, { useEffect } from 'react';
 // @ts-ignore
 import OverscrollPlugin from 'smooth-scrollbar/dist/plugins/overscroll';
-import {Layout} from "antd";
+import { Layout } from "antd";
 import InputPanel from 'components/InputPanel';
 import RunCode from 'components/RunCode';
 import OutputPanel from 'components/OutputPanel';
 import LanguageSelector from 'components/LanguageSelector';
 import RoomInfo from 'components/RoomInfo';
 import CodeEditor from 'components/CodeEditor';
-import {RootStateOrAny, useDispatch, useSelector} from "react-redux";
+import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
+import Scrollbar from 'smooth-scrollbar';
 
 const CollabEditor: React.FC = () => {
-    const {Content, Sider} = Layout;
+    const { Content, Sider } = Layout;
     const dispatch = useDispatch();
     const username = useSelector((state: RootStateOrAny) => state.room.username)
     const id = useSelector((state: RootStateOrAny) => state.room.id)
@@ -35,9 +35,8 @@ const CollabEditor: React.FC = () => {
 
         Scrollbar.init(scroll, {
             ...options,
-            delegateTo: document,
             plugins: {
-                overscroll: {...overscrollOptions},
+                overscroll: { ...overscrollOptions },
             },
         })
 
@@ -66,13 +65,13 @@ const CollabEditor: React.FC = () => {
                     backgroundColor: 'black'
                 }}
             >
-                <LanguageSelector/>
-                <InputPanel/>
-                <RunCode/>
-                <OutputPanel/>
-                <RoomInfo/>
+                <LanguageSelector />
+                <InputPanel />
+                <RunCode />
+                <OutputPanel />
+                <RoomInfo />
             </Sider>
-            <Layout style={{marginLeft: 450}}>
+            <Layout style={{ marginLeft: 450 }}>
                 <Content style={{
                     float: "right",
                     height: "100%",
@@ -80,8 +79,9 @@ const CollabEditor: React.FC = () => {
                     margin: '24px 16px',
                     overflow: "hidden",
                     alignItems: "center",
+                    overflowY: "auto"
                 }}>
-                    <div id='editor' style={{height: "100%", width: "100%"}}/>
+                    <div id='editor' style={{ height: "100%", width: "100%" }} />
                 </Content>
             </Layout>
         </Layout>
